@@ -18,8 +18,8 @@
 
     <script>
       // APIからJSONを取得する
-      fetch("/team/medals")
-        // fetch('/team/list')
+      fetch("/v1/team/medals")
+        // fetch('/v1/team/list')
         .then(response => response.json())
         .then(todoList => {
           const todoContainer = document.querySelector("#olympics");

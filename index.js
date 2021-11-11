@@ -10,7 +10,7 @@ const app = express();
 
 const setupServer = () => {
   app.use(express.json());
-  app.use(express.static("web"));
+  app.use(express.static("public"));
 
   //確認用
   app.get("/api", (req, res) => {
@@ -18,8 +18,8 @@ const setupServer = () => {
   });
 
   //チーム、メダルデータ取得
-  app.get("/team/medals", (req, res) => {
-    knex("olympicsdb")
+  app.get("/v1/team/medals", (req, res) => {
+    knex("olygold")
       .select("team", "gold")
       .from("medals")
       .then(result => {
@@ -28,9 +28,9 @@ const setupServer = () => {
   });
 
   //チームデータ取得
-  app.get("/team/list", (req, res) => {
+  app.get("/v1/team/list", (req, res) => {
     const { limit } = req.query;
-    knex("olympicsdb")
+    knex("olygold")
       .select("team")
       .from("medals")
       .then(result => {
@@ -42,9 +42,9 @@ const setupServer = () => {
       });
 
     //データ追加
-    app.post("/team/list", (req, res) => {
+    app.post("/v1/team/list", (req, res) => {
       const team = Object.values(req.body)[0];
-      knex("olympicsdb")
+      knex("olygold")
         .select("team")
         .from("medals")
         .then(result => {
@@ -55,9 +55,9 @@ const setupServer = () => {
     });
 
     //データ削除
-    app.delete("/team/list/:team", (req, res) => {
+    app.delete("/v1/team/list/:team", (req, res) => {
       const { team } = req.params;
-      knex("olympicsdb")
+      knex("olygold")
         .select("team")
         .from("medals")
         .then(result => {
@@ -68,10 +68,10 @@ const setupServer = () => {
     });
 
     //データ変更
-    app.patch("/team/list/:team", (req, res) => {
+    app.patch("/v1/team/list/:team", (req, res) => {
       const { team } = req.params;
       const newTeam = Object.values(req.body)[0];
-      knex("olympicsdb")
+      knex("olygold")
         .select("team")
         .from("medals")
         .then(result => {
