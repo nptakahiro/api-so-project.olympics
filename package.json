@@ -4,7 +4,7 @@
   "description": "Forth day of api-so-project.olympics",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/test.js",
+    "test": "mocha tests/test.js --exit",
     "lint": "eslint --fix .",
     "start": "node index.js",
     "dev": "nodemon index.js",

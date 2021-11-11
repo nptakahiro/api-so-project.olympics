@@ -43,4 +43,29 @@ describe("API server", () => {
       request.close();
     });
   });
+
+  describe("DELETE /team/list/:team", () => {
+    it("should delete a team", async () => {
+      const res = await request.delete("/team/list/Japan");
+      const actual = JSON.parse(res.text);
+      const actualArr = actual.filter(val => val === "Japan");
+      actualArr.length.should.equal(0);
+      request.close();
+    });
+  });
+
+  describe("PATCH /team/list/:team", () => {
+    it("should delete a team", async () => {
+      const res = await request
+        .patch("/team/list/C_te dIvoire")
+        .send({ team: "C_te d'Ivoire" });
+
+      const actual = JSON.parse(res.text);
+      const beforeArr = actual.filter(val => val === "C_te dIvoire");
+      beforeArr.length.should.equal(0);
+      const afterArr = actual.filter(val => val === "C_te d'Ivoire");
+      afterArr.length.should.equal(1);
+      request.close();
+    });
+  });
 });

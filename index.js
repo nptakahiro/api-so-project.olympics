@@ -53,6 +53,38 @@ const setupServer = () => {
           res.send(ret);
         });
     });
+
+    //データ削除
+    app.delete("/team/list/:team", (req, res) => {
+      const { team } = req.params;
+      knex("olympicsdb")
+        .select("team")
+        .from("medals")
+        .then(result => {
+          let ret = result.map(val => val.team);
+          ret = ret.filter(val => val !== team);
+          res.send(ret);
+        });
+    });
+
+    //データ変更
+    app.patch("/team/list/:team", (req, res) => {
+      const { team } = req.params;
+      const newTeam = Object.values(req.body)[0];
+      knex("olympicsdb")
+        .select("team")
+        .from("medals")
+        .then(result => {
+          let ret = result.map(val => {
+            if (val.team === team) {
+              return newTeam;
+            } else {
+              return val.team;
+            }
+          });
+          res.send(ret);
+        });
+    });
   });
   return app;
 };
