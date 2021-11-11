@@ -1,7 +1,7 @@
 {
-  "name": "sprint.database-part-2",
+  "name": "api-so-project.olympics",
   "version": "1.0.0",
-  "description": "Second day of the Code Chrysalis Databases sprint",
+  "description": "Forth day of api-so-project.olympics",
   "main": "index.js",
   "scripts": {
     "test": "node tests/initialize.js && mocha tests/test.js && npm run lint",
@@ -13,7 +13,7 @@
     "rollback": "knex migrate:rollback --knexfile models/knexfile.js ",
     "precommit": "pretty-quick --staged"
   },
-  "author": "Code Chrysalis",
+  "author": "Takahiro Kan",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
