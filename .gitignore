@@ -24,3 +24,8 @@ yarn-error.log*
 production-server/
 .next/
 junit/
+
+# other file
+*.sql
+*.drawio
+
