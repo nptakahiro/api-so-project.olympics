@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tokyo Olympics 2021</title>
+    <style>
+      html {
+        background-color: rgb(240, 240, 240);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tokyo Olympics 2021</h1>
+    <h3>~rank of gold medals~</h3>
+    <div>
+      <ol id="olympics"></ol>
+    </div>
+
+    <script>
+      // APIからJSONを取得する
+      fetch("/team/medals")
+        // fetch('/team/list')
+        .then(response => response.json())
+        .then(todoList => {
+          const todoContainer = document.querySelector("#olympics");
+
+          // コンテナの中身を全部消す
+          todoContainer.innerHTML = "";
+
+          // JSONの各要素に対して
+          for (const item of todoList) {
+            const li = document.createElement("li"); // リスト要素
+            const label = document.createElement("label"); // ラベル
+            const team = new Text(item.team); // チーム名
+            const gold = new Text(item.gold); // 金メダル数
+
+            // ラベルにチェックボックスとテキストを追加する
+            label.appendChild(team);
+            label.appendChild(new Text(" "));
+            label.appendChild(gold);
+
+            // リスト要素に先ほどのラベルを追加する
+            li.appendChild(label);
+
+            // ランキングを表示する
+            todoContainer.appendChild(li);
+          }
+        });
+    </script>
+  </body>
+</html>
