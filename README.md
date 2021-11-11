@@ -5,6 +5,26 @@
 - Express および Relational database を使用して CRUD API サービスを作成する
 - [東京オリンピック 2021](https://www.kaggle.com/arjunprasadsarkhel/2021-olympics-in-tokyo)のデータを用いた API であり、オリンピックへの参加国やメダル数が取得できる
 
+### ディレクトリ構成
+
+```
+.
+├── README.md
+├── config.js
+├── index.js
+├── knexfile.js
+├── migrations
+│   └── 20211111213534_migration.js
+├── package-lock.json
+├── package.json
+├── public
+│   └── index.html
+├── seeds
+│   └── seed.js
+└── tests
+    └── test.js
+```
+
 ### 依存パッケージのインストールとアプリの起動手順
 
 依存パッケージをインストール：
