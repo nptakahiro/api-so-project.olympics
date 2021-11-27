@@ -36,7 +36,7 @@
 (オプション)knexfile.js の作成：
 
 ```bash
-  npm i
+  npm run init
 ```
 
 データベース`olympicsdb`の作成：
