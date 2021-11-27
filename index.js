@@ -21,7 +21,6 @@ const setupServer = () => {
   app.get("/v1/team/medals", (req, res) => {
     knex("olygold")
       .select("team", "gold")
-      .from("medals")
       .then(result => {
         res.send(result);
       });
@@ -32,7 +31,6 @@ const setupServer = () => {
     const { limit } = req.query;
     knex("olygold")
       .select("team")
-      .from("medals")
       .then(result => {
         let ret = result.map(val => val.team);
         if (limit > 0) {
@@ -46,7 +44,6 @@ const setupServer = () => {
       const team = Object.values(req.body)[0];
       knex("olygold")
         .select("team")
-        .from("medals")
         .then(result => {
           let ret = result.map(val => val.team);
           ret.push(team);
@@ -59,7 +56,6 @@ const setupServer = () => {
       const { team } = req.params;
       knex("olygold")
         .select("team")
-        .from("medals")
         .then(result => {
           let ret = result.map(val => val.team);
           ret = ret.filter(val => val !== team);
@@ -73,7 +69,6 @@ const setupServer = () => {
       const newTeam = Object.values(req.body)[0];
       knex("olygold")
         .select("team")
-        .from("medals")
         .then(result => {
           let ret = result.map(val => {
             if (val.team === team) {

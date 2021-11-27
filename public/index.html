@@ -20,7 +20,7 @@
       // APIからJSONを取得する
       fetch("/v1/team/medals")
         // fetch('/v1/team/list')
-        .then(response => response.json())
+        .then(response => response.json()) // 文字列をjson化
         .then(todoList => {
           const todoContainer = document.querySelector("#olympics");
 

@@ -33,6 +33,12 @@
   npm i
 ```
 
+下記コマンドで`olympicsdb`を作成する。
+
+```
+  echo "CREATE DATABASE olympicsdb;" | psql
+```
+
 マイグレーションの実行：
 
 ```
