@@ -33,7 +33,13 @@
   npm i
 ```
 
-下記コマンドで`olympicsdb`を作成する。
+(オプション)knexfile.js の作成：
+
+```bash
+  npm i
+```
+
+データベース`olympicsdb`の作成：
 
 ```
   echo "CREATE DATABASE olympicsdb;" | psql
